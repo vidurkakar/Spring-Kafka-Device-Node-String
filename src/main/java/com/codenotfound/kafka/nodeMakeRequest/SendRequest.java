@@ -17,7 +17,7 @@ public class SendRequest {
 
   public void send(Request request){
     String requestPayload;
-    requestPayload = request.getrequestSentTo()+"#"+request.getRequestSentBy()+"#"+request.getRequestValue()+"#"+request.getResponseGivenBackTo();
+    requestPayload = request.getrequestSentTo()+"#"+request.getRequestSentBy()+"#"+request.getRequestValue()+"#"+request.getResponseGivenBackTo()+"#"+request.getRequestNumber();
     kafkaTemplate.send(request.getrequestSentTo(), requestPayload);
   }
 }

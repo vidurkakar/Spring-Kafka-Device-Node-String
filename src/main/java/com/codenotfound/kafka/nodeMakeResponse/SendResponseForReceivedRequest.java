@@ -14,8 +14,9 @@ public class SendResponseForReceivedRequest {
 
     public void send(Response response) {
         String query_to_request;
-        query_to_request = response.getSendingTo() + "#" + response.getResult() + "#" + response.getProcessedBy();
+        query_to_request = response.getSendingTo() + "#" + response.getResult() + "#" + response.getProcessedBy() + "#" + response.getRequestNumber();
+        LOGGER.info("sending response {} ", query_to_request);
         kafkaTemplate1.send(response.getSendingTo(), query_to_request);
-        LOGGER.info("sending response ", query_to_request);
+
     }
 }

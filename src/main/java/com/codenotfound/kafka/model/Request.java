@@ -38,16 +38,27 @@ public class Request {
     public String requestValue;
     public String requestSentTo;
 
+    public String getRequestNumber() {
+        return requestNumber;
+    }
+
+    public void setRequestNumber(String requestNumber) {
+        this.requestNumber = requestNumber;
+    }
+
+    public String requestNumber;
+
     public Request(){
         super();
     }
 
-    public Request(String responseGivenBackTo, String requestSentBy, String requestValue, String requestSentTo){
+    public Request(String responseGivenBackTo, String requestSentBy, String requestValue, String requestSentTo, String requestNumber){
         super();
         this.responseGivenBackTo = responseGivenBackTo;
         this.requestSentTo = requestSentTo;
         this.requestValue = requestValue;
         this.requestSentBy = requestSentBy;
+        this.requestNumber = requestNumber;
     }
 
     @Override
