@@ -1,7 +1,7 @@
 kafka:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: 192.168.225.43:9092
   topic:
     helloworld: helloworld.t
 server:
-  port: 8050
+  port: 8040
 
