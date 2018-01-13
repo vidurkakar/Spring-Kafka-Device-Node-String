@@ -31,7 +31,7 @@ public class RequestController {
 //        return ("Received Request" + request2);
 //    }
     @RequestMapping("/service1")
-    public String service1(@RequestParam(value = "request", defaultValue = "cloudNodeReq#DeviceNode1#HelloFromDeviceNode#deviceNodeResp1") String requestQuery){
+    public String service1(@RequestParam(value = "request", defaultValue = "cloudNodeReq#DeviceNode1#HelloFromDeviceNode1#deviceNodeResp1") String requestQuery){
         Request request =new Request();
         String payload[] = requestQuery.split("#");
         if(payload.length ==4) {
@@ -50,7 +50,25 @@ public class RequestController {
     }
 
     @RequestMapping("/service2")
-    public String service2(@RequestParam(value = "request", defaultValue = "edgeNodeReq1#DeviceNode1#HelloFromDeviceNode#deviceNodeResp1") String requestQuery){
+    public String service2(@RequestParam(value = "request", defaultValue = "edgeNodeReq1#DeviceNode1#HelloFromDeviceNode1#deviceNodeResp1") String requestQuery){
+        Request request =new Request();
+        String payload[] = requestQuery.split("#");
+        if(payload.length ==4) {
+            request.setrequestSentTo(payload[0]);
+            request.setRequestSentBy(payload[1]);
+            request.setRequestValue(payload[2]);
+            request.setResponseGivenBackTo(payload[3]);
+            request.setRequestNumber(String.valueOf(service2Counter.getAndIncrement()));
+        }
+        sender.send(request);
+        return ("Device Node Makes a request to edge node. The request is " + requestQuery);
+        //Sending To
+        //Sent By
+        //Value
+        //ResponseToBeGivenTo
+    }
+    @RequestMapping("/service4")
+    public String service3(@RequestParam(value = "request", defaultValue = "deviceNodeReq2#DeviceNode1#HelloFromDeviceNode1#deviceNodeResp1") String requestQuery){
         Request request =new Request();
         String payload[] = requestQuery.split("#");
         if(payload.length ==4) {

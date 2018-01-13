@@ -29,6 +29,8 @@ public class ReceiveRequestReceiveResponse {
     @KafkaListener(topics = "deviceNodeReq1")
     public void receive(String query) {
         System.out.println(query);
+        DisplayRequest displayRequest = new DisplayRequest();
+        displayRequest.createWindow(query);
         String payload[] = query.split("#");
         Request request = new Request();
         ProcessRequest processRequest = new ProcessRequest();
@@ -53,6 +55,8 @@ public class ReceiveRequestReceiveResponse {
         //
         // textToSpeechConvertor.speak("Response Got Back" + payload[1] + "Processed By" + payload[2]);
         //LOGGER.info("received payload = '{}'", responseResult);
+        DisplayResponse displayResponse = new DisplayResponse();
+        displayResponse.createWindow("Response Received from " +responsePayload[2] +" for RequestNumber { " + responsePayload[3] + " }" + " and response is = " + responsePayload[1]);
         LOGGER.info("Response Received from = '{}' for RequestNumber '{}' and response is = '{}'",responsePayload[2],responsePayload[3],responsePayload[1]);
   }
 
