@@ -1,5 +1,5 @@
 kafka:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: 198.162.1.2:9092
   topic:
     helloworld: helloworld.t
 server:
