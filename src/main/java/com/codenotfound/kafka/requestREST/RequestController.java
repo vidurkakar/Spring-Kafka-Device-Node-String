@@ -32,6 +32,7 @@ public class RequestController {
 //    }
     @RequestMapping("/service1")
     public String service1(@RequestParam(value = "request", defaultValue = "cloudNodeReq#DeviceNode2#HelloFromDeviceNode2#deviceNodeResp2") String requestQuery){
+        System.out.println("requestQuery: "+ requestQuery);
         Request request =new Request();
         String payload[] = requestQuery.split("#");
         if(payload.length ==4) {
@@ -51,6 +52,7 @@ public class RequestController {
 
     @RequestMapping("/service2")
     public String service2(@RequestParam(value = "request", defaultValue = "edgeNodeReq1#DeviceNode2#HelloFromDeviceNode2#deviceNodeResp2") String requestQuery){
+
         Request request =new Request();
         String payload[] = requestQuery.split("#");
         if(payload.length ==4) {
