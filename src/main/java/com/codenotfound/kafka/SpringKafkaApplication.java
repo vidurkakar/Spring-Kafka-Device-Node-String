@@ -14,10 +14,10 @@ public class SpringKafkaApplication {
     String librarypath = "src/main/java/com/codenotfound/kafka/osdkLinker";
     System.setProperty("jna.library.path", librarypath);
 //
-//    LLib.instance.intialize_C();
-//    LLib.instance.droneTakeOff_C();
-//    LLib.instance.droneMove_C(5,4,3,2);
-//    LLib.instance.droneLand_C();
+    LLib.instance.intialize_C();
+    LLib.instance.droneTakeOff_C();
+    LLib.instance.droneMove_C(5,4,3,2);
+    LLib.instance.droneLand_C();
 
    // SpringApplication.run(SpringKafkaApplication.class, args);
     SpringApplicationBuilder builder = new SpringApplicationBuilder(SpringKafkaApplication.class);

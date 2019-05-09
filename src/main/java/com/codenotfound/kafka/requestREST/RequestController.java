@@ -43,7 +43,7 @@ public class RequestController {
             request.setRequestNumber(String.valueOf(service1Counter.getAndIncrement()));
         }
         sender.send(request);
-        return ("Device Node Makes a request to edge node. The request is " + requestQuery);
+        return ("Device Node Makes a request to cloud node. The request is " + requestQuery);
         //Sending To
         //Sent By
         //Value
@@ -85,7 +85,7 @@ public class RequestController {
         //Sending To
         //Sent By
         //Value
-        //ResponseToBeGivenTo
+        //ResponseTooBeGivenT
     }
 
 
